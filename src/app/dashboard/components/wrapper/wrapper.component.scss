@@ -1,0 +1,20 @@
+mat-sidenav-container {
+    height: 100%;
+
+    mat-sidenav {
+        mat-nav-list {
+            .menu-item {
+                margin-left: 8px;
+            }
+
+            .chevron-button {
+                transition: 300ms ease-in-out; // define tempo em que ico de seta chevron_right faz a rotação quando e acionando
+                transform: rotate(0deg); // indica que o chevron o icone de seta definido no html vai iniciar na posicao original a posicao 0, como o icone e um chevron_right ele inicia a direita
+            }
+
+            .chevron-button.rotated {
+                transform: rotate(180deg); // faz com que o icone de seta chevron_right definido na html gire 180 graus, nesse caso como ele inia direita ele vai vira para esquerda
+            }
+        }
+    }
+}

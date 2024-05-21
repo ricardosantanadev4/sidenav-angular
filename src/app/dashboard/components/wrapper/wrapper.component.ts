@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./wrapper.component.scss']
 })
 export class WrapperComponent {
+  isExpanded: boolean = true;
 
+  constructor() { }
 }

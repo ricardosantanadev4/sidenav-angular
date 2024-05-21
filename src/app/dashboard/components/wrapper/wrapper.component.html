@@ -1,3 +1,67 @@
-<p>wrapper works!</p>
+<mat-sidenav-container autosize>
+    <mat-sidenav #sidenav mode="side" opened="isExpanded">
+        <mat-nav-list>
+
+            <mat-list-item (click)="isExpanded = !isExpanded">
+                <mat-icon mat-list-icon class="chevron-button" [ngClass]="{ rotated: isExpanded }">chevron_right
+                </mat-icon>
+            </mat-list-item>
+
+            <mat-list-item [routerLink]="'dashboard'">
+                <mat-icon mat-list-icon>home</mat-icon>
+                <span *ngIf="isExpanded" class="menu-item">Dashboard</span>
+            </mat-list-item>
+
+            <mat-list-item [routerLink]="'info'">
+                <mat-icon mat-list-icon>important_devices</mat-icon>
+                <span *ngIf="isExpanded" class="menu-item">Info</span>
+            </mat-list-item>
+
+            <mat-list-item [routerLink]="'user'">
+                <mat-icon mat-list-icon>supervisor_account</mat-icon>
+                <span *ngIf="isExpanded" class="menu-item">User</span>
+            </mat-list-item>
+
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <h4>Hello everyone</h4>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+<!-- Doc HTML current by Ricardo -->
+<!-- <mat-sidenav-container>
+     </mat-sidenav-container> 
+     É o container que fica ao loado do sidebar onde os components filhos sao renderizados
+
+     <mat-sidenav-content>
+     </mat-sidenav-content>
+Tudo que é colocado dentro dessa tag aparece ao lado do sidebar;
+
+autosize
+Quando o sidebar é aberto ele empurra a div do lado o <mat-sidenav-content> no lugar de sobre por o <mat-sidenav-content>
 
 <router-outlet></router-outlet>
+Redenriza o component da rota atual. Ex: Se a rota atual é /dashboard, ele vai rederizar o component dashboard no local onde o <router-outlet></router-outlet> foi declarado
+
+[routerLink]="'dashboard'"
+Quando ocorre o evento click ele manda para rota /dashboard, tendo essa rota configurada o component e rederizado
+
+opened=""
+Se false, quando o programa iniciar o sidebar inicia fechado como uma coluna no canto da tela.
+Se true, o sidebar inicia aberto;
+Por padrao se for declarado dessa forma opened="" ele é true, então o sidebar inicia aberto;
+Você pode definir também como um boolean ex: opened=false ou opened=true.
+Você tabém pode colocar nome dentro da string, que nesse caso ele vai avalidar como um expersão booleana ex: opened="isExpanded" nesse caso isExpanded e uma variavel do ts do tipo boolean 
+
+chevron_right é o nome do icone de seta do angular material 
+
+<mat-icon mat-list-icon class="chevron-button" [ngClass]="{ rotated: isExpanded }">chevron_right
+</mat-icon> 
+O [ngClass] aciona a classe do scss .chevron-button.rotated se isExpanded for true, obs que a classe da tag  é class="chevron-button", ele percorre o caminho por ela.
+-->

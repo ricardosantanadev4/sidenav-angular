@@ -6,6 +6,9 @@ import { UserComponent } from './components/user/user.component';
 import { WrapperComponent } from './components/wrapper/wrapper.component';
 
 const routes: Routes = [
+  /* Definindo a <router-outlet></router-outlet> no HTML do componet WrapperComponent,
+   o component WrapperComponent semprevai ser rendefizado junto com o componente filho da rota atual */
+
   {
     path: '', component: WrapperComponent, children: [
       {
